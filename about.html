@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn how John Conway created the Game of Life, how its rules work, and why its tiny patterns are so surprising."
+    />
+    <title>About Life · Little Life Lab</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="sky-shape sky-shape--one" aria-hidden="true"></div>
+    <div class="sky-shape sky-shape--two" aria-hidden="true"></div>
+
+    <main class="app-shell app-shell--article">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-nav__link" href="./index.html">Play</a>
+        <a class="site-nav__link is-current" href="./about.html" aria-current="page">About Life</a>
+      </nav>
+
+      <header class="hero hero--article">
+        <div class="hero__eyebrow">The story behind the squares</div>
+        <h1>How Life came alive</h1>
+        <p>Four small rules, an endless supply of surprises, and no player required.</p>
+      </header>
+
+      <article class="story-panel">
+        <section class="story-section story-lede" aria-labelledby="zero-player-heading">
+          <div>
+            <p class="section-kicker">First things first</p>
+            <h2 id="zero-player-heading">A game that plays itself</h2>
+            <p>
+              The Game of Life is a <strong>cellular automaton</strong>: a grid of cells that all follow the same local
+              rules. You choose the opening pattern, start the clock, and become a spectator. Every later generation is
+              determined completely by the one before it.
+            </p>
+            <p>
+              That simplicity is the magic. A few cells can vanish, settle into a tiny sculpture, pulse forever, travel
+              across the board, or build structures complicated enough to perform computation.
+            </p>
+          </div>
+          <div class="neighbor-figure" role="img" aria-label="A living center cell surrounded by its eight neighboring cells">
+            <div class="neighbor-grid" aria-hidden="true">
+              <span></span><span></span><span></span>
+              <span></span><span class="is-center"></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+            <p>Every cell watches its <strong>8 neighbors</strong>.</p>
+          </div>
+        </section>
+
+        <section class="story-section" aria-labelledby="history-heading">
+          <p class="section-kicker">A playful experiment</p>
+          <h2 id="history-heading">How Conway found the balance</h2>
+          <div class="history-grid">
+            <div class="history-copy">
+              <p>
+                In the late 1960s, British mathematician <strong>John Horton Conway</strong> became interested in whether
+                very simple rules could create open-ended, unpredictable behavior. He and colleagues tried candidate
+                rules by hand with counters on grid-like boards. Conway later remembered the search as about
+                <strong>18 months of “coffee times”</strong>—informal sessions of testing, watching, and adjusting.
+              </p>
+              <p>
+                He was not trying to imitate biology precisely. He wanted a miniature mathematical universe poised
+                between two dull extremes: everything dying immediately and everything exploding uncontrollably.
+              </p>
+            </div>
+            <ol class="design-goals" aria-label="Conway's three design goals">
+              <li><span>1</span>No obviously inevitable, unlimited explosion.</li>
+              <li><span>2</span>Some patterns that seemed capable of growing without limit.</li>
+              <li><span>3</span>Small patterns that could evolve for a long time before dying, stabilizing, or repeating.</li>
+            </ol>
+          </div>
+          <p>
+            Conway shared the result with mathematical-games writer <strong>Martin Gardner</strong>. Gardner introduced
+            Life to a wide audience in the October 1970 issue of <em>Scientific American</em>, where he summed up the
+            goal neatly: the population’s behavior should be difficult to predict.
+          </p>
+        </section>
+
+        <section class="story-section" aria-labelledby="rules-heading">
+          <p class="section-kicker">B3 / S23</p>
+          <h2 id="rules-heading">The rules of Life</h2>
+          <p class="section-intro">
+            Count the living cells in the eight spaces around each cell. Then update every cell at the same time.
+          </p>
+          <div class="rule-grid">
+            <div class="rule-card">
+              <div class="rule-card__number">2–3</div>
+              <h3>Survival</h3>
+              <p>A living cell with two or three living neighbors stays alive.</p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-card__number">3</div>
+              <h3>Birth</h3>
+              <p>A dead cell with exactly three living neighbors becomes alive.</p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-card__number">0–1</div>
+              <h3>Isolation</h3>
+              <p>A living cell with fewer than two living neighbors dies.</p>
+            </div>
+            <div class="rule-card">
+              <div class="rule-card__number">4–8</div>
+              <h3>Crowding</h3>
+              <p>A living cell with more than three living neighbors dies.</p>
+            </div>
+          </div>
+          <div class="rules-note">
+            <strong>Why “B3/S23”?</strong> It is compact notation for birth with 3 neighbors and survival with 2 or 3.
+            Any other cell is dead in the next generation.
+          </div>
+        </section>
+
+        <section class="story-section" aria-labelledby="patterns-heading">
+          <p class="section-kicker">Tiny creatures</p>
+          <h2 id="patterns-heading">Three ways a pattern can behave</h2>
+          <div class="pattern-gallery">
+            <figure class="pattern-card">
+              <div class="mini-board" role="img" aria-label="A block: four living cells arranged in a two by two square">
+                <i style="--x: 2; --y: 2"></i><i style="--x: 3; --y: 2"></i>
+                <i style="--x: 2; --y: 3"></i><i style="--x: 3; --y: 3"></i>
+              </div>
+              <figcaption><strong>Block</strong><span>Still life · never changes</span></figcaption>
+            </figure>
+
+            <figure class="pattern-card">
+              <div class="pattern-phases">
+                <div class="mini-board" role="img" aria-label="Blinker phase one: three living cells in a horizontal line">
+                  <i style="--x: 2; --y: 3"></i><i style="--x: 3; --y: 3"></i><i style="--x: 4; --y: 3"></i>
+                </div>
+                <span aria-hidden="true">↔</span>
+                <div class="mini-board" role="img" aria-label="Blinker phase two: three living cells in a vertical line">
+                  <i style="--x: 3; --y: 2"></i><i style="--x: 3; --y: 3"></i><i style="--x: 3; --y: 4"></i>
+                </div>
+              </div>
+              <figcaption><strong>Blinker</strong><span>Oscillator · repeats every 2 generations</span></figcaption>
+            </figure>
+
+            <figure class="pattern-card">
+              <div class="glider-stage">
+                <div class="mini-board" role="img" aria-label="A glider made from five living cells">
+                  <i style="--x: 3; --y: 2"></i><i style="--x: 4; --y: 3"></i>
+                  <i style="--x: 2; --y: 4"></i><i style="--x: 3; --y: 4"></i><i style="--x: 4; --y: 4"></i>
+                </div>
+                <span aria-hidden="true">↘</span>
+              </div>
+              <figcaption><strong>Glider</strong><span>Spaceship · travels diagonally</span></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="story-section resources" aria-labelledby="resources-heading">
+          <p class="section-kicker">Keep exploring</p>
+          <h2 id="resources-heading">Follow the rabbit hole</h2>
+          <div class="resource-links">
+            <a href="https://www.scientificamerican.com/article/mathematical-games-1970-10/" target="_blank" rel="noreferrer">
+              <strong>Gardner’s original 1970 article</strong>
+              <span>The Scientific American issue that introduced Life to the world. ↗</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=R9Plq-D1gEk" target="_blank" rel="noreferrer">
+              <strong>Conway tells the story</strong>
+              <span>Hear John Conway describe the invention in a Numberphile interview. ↗</span>
+            </a>
+            <a href="https://conwaylife.com/wiki/" target="_blank" rel="noreferrer">
+              <strong>LifeWiki</strong>
+              <span>Explore a vast community-built catalogue of patterns and discoveries. ↗</span>
+            </a>
+          </div>
+        </section>
+
+        <div class="article-cta">
+          <p>Ready to make a tiny universe of your own?</p>
+          <a class="button button--play" href="./index.html">← Back to the board</a>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
