@@ -1,6 +1,6 @@
 # Little Life Lab
 
-A playful, dependency-free version of Conway's Game of Life. Draw patterns on a large 64 × 40 toy-like grid, learn the history and rules, and explore what moving patterns can teach us about identity through change.
+A playful, dependency-free version of Conway's Game of Life. Draw patterns on a large 64 × 40 toy-like grid, watch them evolve, and learn the history and rules on the companion About Life page.
 
 ## Play
 
