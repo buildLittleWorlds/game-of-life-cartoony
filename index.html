@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A playful, cartoony version of Conway's Game of Life. Draw a pattern and watch it grow!"
+    />
+    <title>Little Life Lab</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="sky-shape sky-shape--one" aria-hidden="true"></div>
+    <div class="sky-shape sky-shape--two" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <div class="hero__eyebrow">Conway's Game of Life</div>
+        <h1>Little Life Lab</h1>
+        <p>Draw a tiny world, press play, and see what wiggles to life.</p>
+      </header>
+
+      <section class="toy-panel" aria-label="Game controls and board">
+        <div class="dashboard">
+          <div class="controls" aria-label="Simulation controls">
+            <button class="button button--play" id="play-button" type="button">
+              <span aria-hidden="true" id="play-icon">▶</span>
+              <span id="play-label">Play</span>
+            </button>
+            <button class="button" id="step-button" type="button">
+              <span aria-hidden="true">↦</span> Step
+            </button>
+            <button class="button button--clear" id="clear-button" type="button">
+              <span aria-hidden="true">✦</span> Clear
+            </button>
+          </div>
+
+          <div class="speed-control">
+            <label for="speed-slider">Speed <output id="speed-output">8</output></label>
+            <input id="speed-slider" type="range" min="1" max="20" value="8" />
+            <div class="speed-control__ends" aria-hidden="true"><span>chill</span><span>zoom!</span></div>
+          </div>
+
+          <dl class="counters" aria-label="Simulation statistics">
+            <div>
+              <dt>Generation</dt>
+              <dd id="generation-count">0</dd>
+            </div>
+            <div>
+              <dt>Population</dt>
+              <dd id="population-count">0</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="board-frame">
+          <div class="board-scroll" id="board-scroll">
+            <canvas
+              id="life-canvas"
+              width="1024"
+              height="640"
+              tabindex="0"
+              role="application"
+              aria-label="64 by 40 Game of Life grid. Use arrow keys to move, Enter to toggle a cell, and Space to play or pause."
+              aria-describedby="board-help"
+            ></canvas>
+          </div>
+        </div>
+
+        <div class="board-footer">
+          <p id="board-help"><strong>Draw:</strong> click or drag across the board. Drag from a live cell to erase.</p>
+          <p class="world-size" aria-label="World size 64 columns by 40 rows">64 × 40 world · edges wrap</p>
+        </div>
+      </section>
+
+      <p class="sr-only" id="announcement" aria-live="polite"></p>
+    </main>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
