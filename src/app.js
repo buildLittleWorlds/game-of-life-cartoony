@@ -47,15 +47,15 @@ function drawCell(target, x, y, alive, cellWidth, cellHeight) {
   const height = cellHeight - gap * 2;
   const radius = Math.min(width, height) * 0.3;
 
-  target.fillStyle = alive ? "#c84e4b" : "#d4bc83";
+  target.fillStyle = alive ? "#8f203d" : "#d4bc83";
   roundedRectPath(target, left, top + Math.max(1, height * 0.08), width, height, radius);
   target.fill();
 
-  target.fillStyle = alive ? "#ff7666" : "#fff4cf";
+  target.fillStyle = alive ? "#eb3155" : "#fff4cf";
   roundedRectPath(target, left, top, width, height * 0.91, radius);
   target.fill();
 
-  target.fillStyle = alive ? "rgba(255,255,255,0.42)" : "rgba(255,255,255,0.62)";
+  target.fillStyle = alive ? "rgba(255,255,255,0.68)" : "rgba(255,255,255,0.62)";
   roundedRectPath(
     target,
     left + width * 0.18,
